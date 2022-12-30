@@ -34,6 +34,19 @@ app.post('/user',async (req,res)=>{
         console.log(err);
     }
 });
+app.get('/user/:id',async (req,res)=>{
+    try{
+        const {id} = req.params;
+        console.log(id);
+        const q = "SELECT * FROM userinfo WHERE inVoiceId = ?";
+        db.query(q,[id],(err,result)=>{
+            if(err) res.json(err);
+            res.json(result);
+        });
+    }catch(err){
+        console.log(err);
+    }
+});
 app.get('/',(req,res)=>{
     res.json("Hi, I'm Aamarpay server!");
 });
