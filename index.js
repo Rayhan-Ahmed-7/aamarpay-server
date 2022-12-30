@@ -28,23 +28,22 @@ app.post('/user',async (req,res)=>{
         const values = [name,email,phone,amount,inVoiceId];
         db.query(q,[values],(err,result)=>{
             if(err) res.json(err);
-            res.json(result);
+            else res.json(result);
         });
     }catch(err){
-        console.log(err);
+        res.json(err);
     }
 });
 app.get('/user/:id',async (req,res)=>{
     try{
         const {id} = req.params;
-        console.log(id);
         const q = "SELECT * FROM userinfo WHERE inVoiceId = ?";
         db.query(q,[id],(err,result)=>{
             if(err) res.json(err);
-            res.json(result);
+            else res.json(result);
         });
     }catch(err){
-        console.log(err);
+        res.json(err);
     }
 });
 app.get('/',(req,res)=>{
