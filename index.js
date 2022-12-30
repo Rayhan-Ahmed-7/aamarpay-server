@@ -9,10 +9,10 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-    host:"localhost",
-    user:'root',
-    password:'1234',
-    database:'aamarpay'
+    host:"sql8.freesqldatabase.com",
+    user:'sql8587177',
+    password:'JjrvDjVCXy',
+    database:'sql8587177'
 });
 
 db.connect((err)=>{
